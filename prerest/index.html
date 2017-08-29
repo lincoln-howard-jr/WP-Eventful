@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap Calendar Demo</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Zilla+Slab" rel="stylesheet">
+  <script>
+    var months = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December'
+    ];
+  </script>
+  <style>
+    .eventful-zilla {
+      font-family: 'Zilla Slab', serif;
+      padding: 10px 20px;
+      border: 1px solid #aaa;
+    }
+    .eventful-zilla:hover {
+      box-shadow: 1px 1px 5px #999;
+    }
+    .eventful-cell {
+      height: 64px;
+      border: 1px #fff solid;
+      background-color: #f8f8f8;
+      width: 14.2%;
+      vertical-align: top;
+      margin: 0;
+    }
+    .eventful-cell-number {
+      float: left;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container eventful-zilla">
+    <div class="row">
+      <div class="col-3">
+        <div class="btn-group" role="group">
+          <button id="eventful-month-decrement" type="button" class="btn btn-secondary"><i class="fa fa-chevron-left"></i></button>
+          <button id="eventful-month-increment" type="button" class="btn btn-secondary"><i class="fa fa-chevron-right"></i></button>     
+        </div>
+      </div>
+      <div class="col-6 text-center align-middle">
+        <h3 id="eventful-display-month"></h3>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <table class="w-100">
+        <thead>
+          <th>Sun</th>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thu</th>
+          <th>Fri</th>
+          <th>Sat</th>
+        </thead>
+        <tbody>
+          <tr class="eventful-row">
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-0-0"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-0-1"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-0-2"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-0-3"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-0-4"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-0-5"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-0-6"></span>
+            </td>
+          </tr>
+          <tr class="eventful-row">
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-1-0"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-1-1"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-1-2"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-1-3"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-1-4"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-1-5"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-1-6"></span>
+            </td>
+          </tr>
+          <tr class="eventful-row">
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-2-0"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-2-1"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-2-2"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-2-3"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-2-4"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-2-5"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-2-6"></span>
+            </td>
+          </tr>
+          <tr class="eventful-row">
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-3-0"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-3-1"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-3-2"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-3-3"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-3-4"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-3-5"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-3-6"></span>
+            </td>
+          </tr>
+          <tr class="eventful-row">
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-4-0"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-4-1"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-4-2"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-4-3"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-4-4"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-4-5"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-4-6"></span>
+            </td>
+          </tr>
+          <tr class="eventful-row">
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-5-0"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-5-1"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-5-2"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-5-3"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-5-4"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-5-5"></span>
+            </td>
+            <td class="eventful-cell">
+              <span class="eventful-cell-number" id="eventful-5-6"></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script>
+    let currentYear = new Date ().getFullYear ();
+    let currentMonth = new Date ().getMonth ();
+    document.querySelector ('#eventful-month-increment').onclick = () => {
+      currentMonth++;
+      if (currentMonth === 12) {
+        currentYear++;
+        currentMonth = 0;
+      }
+      setDates ();
+    }
+    document.querySelector ('#eventful-month-decrement').onclick = () => {
+      currentMonth--;
+      if (currentMonth === -1) {
+        currentYear--;
+        currentMonth = 11;
+      }
+      setDates ();
+    }
+    let setMonth = () => {
+      document.querySelector ('#eventful-display-month').innerHTML = `${months [currentMonth]}, ${currentYear}`;
+    }
+    let getCell = (x, y) => {
+      let str = `#eventful-${x}-${y}`;
+      return document.querySelector (str);
+    }
+    let daysInMonth = (month, year) => {
+        return new Date (year, month + 1, 0).getDate ();
+    }
+    let clear = () => {
+      for (let i = 0; i < 6; i++)
+        for (let j = 0; j < 7; j++)
+          getCell (i, j).innerHTML = '';
+    }
+    let setDates = () => {
+      clear ();
+      setMonth ();
+      let max = daysInMonth (currentMonth, currentYear);
+      let firstOfMonth = new Date (currentYear, currentMonth).getDay ();
+      for (let i = 1; i <= max; i++) {
+        let cell = getCell (Math.floor (firstOfMonth / 7), firstOfMonth % 7);
+        cell.innerHTML = i;
+        firstOfMonth++;
+      }
+    }
+    setDates ();
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+.eventful-zilla {
+  overflow: hidden;
+  font-family: 'Zilla Slab', serif;
+}
+.eventful-row {
+  height: 80px;
+}
+.eventful-list-content {
+  float: right;
+}
+.eventful-cell {
+  height: 80px;
+  border: 1px #bbb solid;
+  background-color: #f8f8f8;
+  width: 14%;
+  vertical-align: top;
+  margin: 0;
+}
+.eventful-cell-number {
+  float: left;
+  margin: 0;
+  margin-left: 5px;
+}
+table {
+  border: 1px solid #bbb;
+  transition: 0.5s;
+}
+table:hover {
+  box-shadow: 2px 2px 7px #999;
+}
+th {
+  text-align: center;
+}
+.ma {
+  margin: auto;
+}
